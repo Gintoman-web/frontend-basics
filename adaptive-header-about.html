@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивный хедер и секция "О нас"</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: cornflowerblue;
+            /* Цвет фона для всей страницы */
+        }
+
+        /* КОНТЕЙНЕР ХЕДЕРА: ОБЕРТКА ДЛЯ ВЫРАВНИВАНИЯ ФОНА ПО ВСЕЙ ШИРИНЕ */
+        /* Если хочешь, чтобы фон хедера был на всю ширину экрана */
+        .header-wrapper {
+            background-color: cornflowerblue; /* Фон на всю ширину */
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            /* Если фон уже задан в .header-wrapper, здесь background-color не нужен */
+            /* background-color: cornflowerblue; */
+
+            /* ИСПРАВЛЕНИЕ: Ограничиваем ширину хедера и центрируем его */
+            max-width: 1200px; /* Выравниваем с остальным контентом */
+            margin: 0 auto; /* Центрируем хедер по горизонтали */
+        }
+
+        /* ИСПРАВЛЕНИЕ: Стили для ссылок внутри навигации, а не для ul */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 15px; /* Промежутки между пунктами меню */
+        }
+
+        .main-nav ul li a {
+            text-decoration: none; /* Убираем подчеркивание */
+            display: inline-block; /* Позволяет применять padding и margin, делает элемент кликабельной областью */
+            cursor: pointer;
+            color: rgb(5, 104, 5); /* Цвет текста ссылки */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 5px 10px; /* Добавляем отступы для удобства нажатия */
+            transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+        }
+
+        .main-nav ul li a:hover {
+            color: darkblue; /* Цвет ссылки при наведении */
+        }
+
+        .burger-menu {
+            display: none; /* Скрыт по умолчанию на больших экранах */
+            font-size: 2em; /* Размер иконки */
+            color: rgb(5, 104, 5);
+            cursor: pointer;
+        }
+
+        .logo img {
+            max-width: 80px; /* Ограничиваем размер логотипа */
+            height: auto;
+            display: block; /* Убираем лишний отступ под изображением */
+        }
+
+        .about-section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(5, 104, 5); /* Цвет текста в секции "О нас" */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-top: 40px; /* Отступ сверху, чтобы отделить от хедера */
+        }
+
+        .about-section h2 {
+            margin-bottom: 30px; /* Отступ снизу для заголовка секции */
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Изображение 1 часть, текст 2 части */
+            gap: 30px;
+            align-items: center; /* Выравнивание элементов по центру по вертикали */
+            text-align: left; /* Текст внутри блока будет выровнен по левому краю */
+            padding: 0 20px; /* Добавляем горизонтальный padding, чтобы контент не прилипал к краям на узких экранах */
+        }
+
+        .about-content img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) { /* ИСПРАВЛЕНИЕ: Убрана точка с запятой */
+            .main-header {
+                padding: 10px; /* Уменьшаем padding на планшетах */
+            }
+            .main-nav ul li a {
+                font-size: 0.9em; /* Немного уменьшаем шрифт меню */
+            }
+            .about-content {
+                grid-template-columns: 1fr; /* На планшетах одна колонка (изображение над текстом) */
+                text-align: center; /* Центрируем текст и изображение */
+            }
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 480px) { /* ИСПРАВЛЕНИЕ: Убрана точка с запятой */
+            .main-nav ul {
+                display: none; /* Скрываем обычное меню */
+            }
+            .burger-menu {
+                display: block; /* Показываем иконку бургер-меню */
+            }
+            /* main-header уже имеет justify-content: space-between, это будет работать для лого и бургера */
+            .about-content {
+                padding: 10px; /* Уменьшаем padding для компактности на мобильных */
+            }
+            .about-section h2 {
+                font-size: 1.5em; /* Уменьшаем размер заголовка на мобильных */
+            }
+            .about-text p {
+                font-size: 0.9em; /* Уменьшаем размер текста абзацев */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+        <header class="main-header">
+            <div class="logo">
+                <img src="https://avatars.dzeninfra.ru/get-zen-logos/271828/pub_684377e5bdb83b4509c592b0_684377e9e81e9155a630bf68/orig" alt="Логотип">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="">Главная</a></li>
+                    <li><a href="">Услуги</a></li>
+                    <li><a href="">Портфолио</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">&#9776;</div>
+        </header>
+    </div>
+
+    <section class="about-section">
+        <h2>О нас</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="C:\Дзен\unnamed (2).jpg" alt="Приветствие">
+            </div>
+            <div class="about-text">
+                <p>Мы – команда опытных веб-разработчиков и дизайнеров, страстно увлеченных созданием исключительных цифровых продуктов. Наша миссия — помогать бизнесам и частным лицам воплощать их идеи в жизнь, разрабатывая функциональные, красивые и удобные веб-решения. Мы верим, что качественный сайт или приложение – это ключ к успеху в современном цифровом мире.</p>
+                <p>Наша команда специализируется на адаптивной вёрстке, создании интерактивных пользовательских интерфейсов и оптимизации производительности, чтобы ваш проект выглядел и работал безупречно на любых устройствах. Мы гордимся тем, что предлагаем индивидуальный подход к каждому клиенту, обеспечивая прозрачность на всех этапах разработки.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
