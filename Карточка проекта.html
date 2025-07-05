@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект "Матрица"</title>
+    <Style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 200px auto auto auto;
+            gap: 15px;
+            width: 400px;
+            min-height: 450px;
+            padding: 20px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .project-details h3, p {
+        margin: 0;
+        font-size: 1em;
+        padding: 5px;
+        }
+        .project-details h3 {
+            font-size: 1.1em;
+            color: darkgreen;
+        }
+        .project-details p {
+            font-size: 0.9em;
+            color: darkgreen; 
+        }
+        .project-tech h4 {
+         font-size: medium;
+         color: darkgreen;
+        }
+        .project-tech ul {
+            display: flex;
+            list-style: none;
+            padding: 1px;
+            margin: 1px;
+            gap: 8px;
+            background-color: black;
+            padding: 0;
+            border-radius:10px;
+            font-size: medium;
+            color: darkgreen;
+            border: 1px;
+        }
+        .project-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px;
+            gap: 15px;
+        }
+        .project-actions button {
+            background-color: #0a0a0a;
+            color: limegreen;
+            border: 1px solid limegreen;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .project-actions button:hover {
+            background-color: limegreen;
+    color: black;
+        }
+        
+    </Style>
+</head>
+<body>
+    <div class="project-card">
+        <div class="project-image"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/The.Matrix.glmatrix.2.png/330px-The.Matrix.glmatrix.2.png" alt="Циферки"></div>
+        <div class="project-details">
+            <h3>Проект "Матрица"</h3>
+            <p>Устал от серой жизни? Тогда тебе к нам! Полное погружение и совершенно новая жизнь, где ты можешь все!
+        Присоединяйся, Избранный!</div>
+        <div class="project-tech">
+            <h4>Технологии:</h4>
+             <ul>
+                <li>Доставка</li>
+                <li>Налоги</li>
+                <li>Пиво</li>
+             </ul></div>
+             <div class="project-actions">
+                <button>Посмотреть демо</button>
+                <button>Исходный код</button>
+        </div>
+    </div>
+    
+</body>
+</html>
